@@ -13,3 +13,5 @@ I choose ${OPTION} option
   Log Variables
   Click Element    ${OPTION}
   
+I uncheck "Starts with lorem" option
+  Click Element    ${START_WITH_CHECKBOX}

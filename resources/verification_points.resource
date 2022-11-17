@@ -20,3 +20,11 @@ I should see ${EXPECTED} bytes of text
 I should see ${EXPECTED} lists
   ${LISTS} =  Get Element Count        ${LISTS_LIST}
   Should Be Equal As Integers          ${LISTS}    ${EXPECTED}
+
+I should see ipsum starting with "${UNEXPECTED_TEXT}"
+  ${GENERATED_IPSUM} =    Get Text              ${FIRST_PARAGRAPH}
+  Should Start With       ${GENERATED_IPSUM}    ${UNEXPECTED_TEXT}
+
+I should not see ipsum starting with "${UNEXPECTED_TEXT}"
+  ${GENERATED_IPSUM} =     Get Text              ${FIRST_PARAGRAPH}
+  Should Not Start With    ${GENERATED_IPSUM}    ${UNEXPECTED_TEXT}

@@ -36,7 +36,7 @@ Scenario 02: Words generator
     And I should see ${QTD_OF_WORDS} words
 
 Scenario 03: Bytes generator
-  [Tags]             bytes
+  [Tags]             bytes  skip
   ${QTD_OF_BYTES} =  Get random digit
   
   Given I am at Lorem ipsum home page
@@ -56,3 +56,21 @@ Scenario 04: Lists generator
     And I generate ipsum
    Then I wait for page load
     And I should see ${QTD_OF_LISTS} lists
+
+Scenario 05: Starts with lorem
+  [Tags]             starts-with  
+
+  Given I am at Lorem ipsum home page
+    And I generate ipsum
+   Then I wait for page load
+    And I should see ipsum starting with "Lorem ipsum dolor sit amet" 
+  
+Scenario 06: Not starts with lorem
+  [Tags]             starts-with  
+
+  Given I am at Lorem ipsum home page
+   When I uncheck "Starts with lorem" option
+    And I generate ipsum
+   Then I wait for page load
+    And I should not see ipsum starting with "Lorem ipsum dolor sit amet" 
+  
